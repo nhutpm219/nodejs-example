@@ -21,7 +21,7 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Build the Docker image
-      run: docker build -t ${{ IMAGE_NAME }}:${{ IMAGE_TAG }} .
+      run: docker build -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
 
     - name: Check Docker Images
       run: docker ps 
