@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: be4e/nodeapp:latest
+        image: nhutpm/be4e_nodeapp_test:latest
         ports:
         - containerPort: 3000
