@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 env:
-  IMAGE_NAME: be4e/nodeapp_test
+  IMAGE_NAME: be4e_nodeapp_test
   IMAGE_TAG: latest
   username: ${{ secrets.DOCKERHUB_USERNAME }}
   password: ${{ secrets.DOCKERHUB_PASSWORD }}
