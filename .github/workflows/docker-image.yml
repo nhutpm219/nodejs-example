@@ -6,13 +6,30 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  IMAGE_NAME: be4e/nodeapp_test
+  IMAGE_TAG: latest
+  username: ${{ secrets.DOCKERHUB_USERNAME }}
+  password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v4
+    
     - name: Build the Docker image
-      run: docker build -t be4e/nodeapp_test:latest .
+      run: docker build -t ${{ IMAGE_NAME }}:${{ IMAGE_TAG }} .
+
+    - name: Check Docker Images
+      run: docker ps 
+
+      
+    - name: Docker Login
+      uses: docker/login-action@v3.3.0
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
